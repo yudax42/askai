@@ -1,28 +1,31 @@
 {
-  "name": "my-cli-project",
+  "name": "ask",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "rollup --config rollup.config.js --watch",
     "build": "tsc --noEmit && rollup --config rollup.config.js"
   },
-  "exports": {
-    ".": {
-      "require": "./dist/index.js",
-      "import": "./dist/index.js"
-    }
-  },
-  "bin":{
+  "bin": {
     "ask": "./bin/index.js"
-  },	
+  },
   "main": "./dist/index.js",
-  "types": "./dist/dts/index.d.ts",
+  "types": "./dist/index.d.ts",
   "devDependencies": {
+    "@types/node": "^18.11.10",
+    "@types/turndown": "^5.0.1",
     "rollup": "^3.5.1",
     "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.34.1",
     "typescript": "^4.9.3"
   },
   "dependencies": {
-    "rollup-plugin-typescript2": "^0.34.1"
+    "cac": "^6.7.14",
+    "cli-spinners": "^2.7.0",
+    "kleur": "^4.1.5",
+    "prompts": "^2.4.2",
+    "puppeteer": "^19.3.0",
+    "readline": "^1.3.0",
+    "turndown": "^7.1.1"
   }
 }

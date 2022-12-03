@@ -3,7 +3,8 @@
     "target": "es2018",
     "module": "esnext",
     "lib": [
-      "esnext"
+      "esnext",
+      "dom"
     ],
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -22,6 +23,5 @@
   },
   "include": [
     "lib",
-    "rollup.config.js"
   ]
 }
