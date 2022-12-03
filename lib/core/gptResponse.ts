@@ -2,6 +2,7 @@ export default async function (): Promise<string> {
   const removeZeroWidthSpace = (str: string) =>
     str.replace(/[\u200B-\u200D\uFEFF]/g, "");
 
+  // Todo: Find a better way to fix puppeter the reference error
   const CONVERSTATION_ITEMS_SELECTOR =
     "div[class*='ConversationItem__Message']";
   const CONVERSTATION_ITEMS_LAST_SELECTOR =
