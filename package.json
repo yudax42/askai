@@ -1,5 +1,5 @@
 {
-  "name": "ask",
+  "name": "askai",
   "version": "1.0.0",
   "type": "module",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "tsc --noEmit && rollup --config rollup.config.js"
   },
   "bin": {
-    "ask": "./bin/index.js"
+    "askai": "./bin/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",

@@ -1,9 +1,9 @@
 import prompts from "prompts";
+import TurndownService from "turndown";
 import waitForResponse from "@/core/gptResponse";
 import gptChat from "@/core/gptChat";
 import gptAsk from "@/core/gptAsk";
 import stdout from "@/stdout";
-import TurndownService from "turndown";
 import { clear } from "console";
 
 const turndownService = new TurndownService();

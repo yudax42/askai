@@ -1,9 +1,9 @@
 import stdout from "@/stdout";
-import { clear } from "console";
-import TurndownService from "turndown";
 import waitForResponse from "@/core/gptResponse";
 import gptAsk from "@/core/gptAsk";
 import gptChat from "@/core/gptChat";
+import TurndownService from "turndown";
+import { clear } from "console";
 
 const turndownService = new TurndownService();
 

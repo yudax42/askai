@@ -6,7 +6,7 @@ export default async function (): Promise<void> {
     headless: false,
     defaultViewport: null,
     args: ["--start-maximized"],
-    userDataDir: "/tmp/askdata",
+    userDataDir: config.PUPPETER_DATA_DIR,
   });
   const page = await browser.newPage();
 

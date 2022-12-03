@@ -7,7 +7,7 @@ export default async function (): Promise<{
 }> {
   const browser = await puppeteer.launch({
     headless: true,
-    userDataDir: "/tmp/askdata",
+    userDataDir: config.PUPPETER_DATA_DIR,
   });
 
   const page = await browser.newPage();
