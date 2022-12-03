@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/node': ^18.11.10
+  '@types/prompts': ^2.4.1
   '@types/turndown': ^5.0.1
   cac: ^6.7.14
   cli-spinners: ^2.7.0
@@ -26,6 +27,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 18.11.10
+  '@types/prompts': 2.4.1
   '@types/turndown': 5.0.1
   rollup: 3.5.1
   rollup-plugin-node-resolve: 5.2.0_rollup@3.5.1
@@ -69,6 +71,12 @@ packages:
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
     dev: false
+
+  /@types/prompts/2.4.1:
+    resolution: {integrity: sha512-1Mqzhzi9W5KlooNE4o0JwSXGUDeQXKldbGn9NO4tpxwZbHXYd+WcKpCksG2lbhH7U9I9LigfsdVsP2QAY0lNPA==}
+    dependencies:
+      '@types/node': 18.11.10
+    dev: true
 
   /@types/resolve/0.0.8:
     resolution: {integrity: sha512-auApPaJf3NPfe18hSoJkp8EbZzer2ISk7o8mCC3M9he/a04+gbMF97NkpD2S8riMGvm4BMRI59/SZQSaLTKpsQ==}

@@ -2,7 +2,7 @@ import kleur from "kleur";
 import readline from "readline";
 import spinners from "cli-spinners";
 
-export const stdout = {
+export default {
   log: (message: string) => {
     console.log(kleur.gray(message));
   },

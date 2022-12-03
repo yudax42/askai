@@ -13,6 +13,7 @@
   "types": "./dist/index.d.ts",
   "devDependencies": {
     "@types/node": "^18.11.10",
+    "@types/prompts": "^2.4.1",
     "@types/turndown": "^5.0.1",
     "rollup": "^3.5.1",
     "rollup-plugin-node-resolve": "^5.2.0",
