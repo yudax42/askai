@@ -1,3 +1,5 @@
+![askai](./assets/askai.png)
+
 # askai
 
 A command-line interface for OpenAI ChatGPT.
