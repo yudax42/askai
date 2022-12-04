@@ -8,7 +8,7 @@ import { clear } from "console";
 
 const turndownService = new TurndownService();
 
-export default async function () {
+export default async function (options: Record<string, any>) {
   try {
     const loadingMsg = new stdout.loading("Connecting to ChatGPT...");
     loadingMsg.start();
@@ -33,7 +33,7 @@ export default async function () {
         continue;
       }
 
-      await gptAsk(page, question);
+      await gptAsk(page, question, options.description);
 
       const lastMessage: string = await page.evaluate(waitForResponse);
 

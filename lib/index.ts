@@ -7,7 +7,10 @@ const cli = cac("askai");
 
 cli.command("login", "Login to your chatGPT account").action(loginAction);
 cli.command("logout", "Logout of your chatGPT account").action(logoutAction);
-cli.command("live", "Open Live chat session").action(liveAction);
+cli
+  .command("live", "Open Live chat session")
+  .option("--no-description", "Output code block only")
+  .action(liveAction);
 
 cli.on("command:!", () => {
   if (cli.args[0]) {
