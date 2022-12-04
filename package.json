@@ -8,7 +8,7 @@
     "release": "pnpm run build && pnpm version patch && pnpm publish"
   },
   "bin": {
-    "askai": "./bin/index.js"
+    "askai": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
