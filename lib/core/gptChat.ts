@@ -16,6 +16,17 @@ export default async function (): Promise<{
     waitUntil: "domcontentloaded",
   });
 
+  const hasSeenOnboarding = await page.evaluate(() => {
+    return localStorage.getItem("oai/apps/hasSeenOnboarding/chat");
+  });
+
+  if (!hasSeenOnboarding) {
+    await page.evaluate(() => {
+      localStorage.setItem("oai/apps/hasSeenOnboarding/chat", "true");
+    });
+    await page.reload();
+  }
+
   const isLoginPage = await page.$(config.LOGIN_PAGE_SELECTOR);
   if (isLoginPage) {
     clear();
