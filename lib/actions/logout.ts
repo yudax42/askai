@@ -1,17 +1,20 @@
 import stdout from "@/stdout";
-import rmrf from "rmrf";
 import config from "@/config";
+import { unlinkSync } from "fs";
 
 export default async function (): Promise<void> {
   try {
     const msg = new stdout.loading("Logging out...");
     msg.start();
-    rmrf(config.PUPPETER_DATA_DIR);
+
+    unlinkSync(config.TOKEN_PATH);
+
     msg.setMessage("Logged out successfully");
     msg.stop();
   } catch (e) {
     if (e instanceof Error) {
       stdout.error(e.message);
+      process.exit(0);
     }
   }
 }

@@ -1,27 +1,18 @@
 import stdout from "@/stdout";
-import waitForResponse from "@/core/gptResponse";
-import gptAsk from "@/core/gptAsk";
-import gptChat from "@/core/gptChat";
-import TurndownService from "turndown";
 import { clear } from "console";
-
-const turndownService = new TurndownService();
+import initChatGPT from "@/init";
 
 export default async function (question: string) {
   try {
-    const start = Date.now();
     const loadingMsg = new stdout.loading("Connecting to ChatGPT...");
     loadingMsg.start();
 
-    const { page, browser } = await gptChat();
-
-    loadingMsg.setMessage(`ChatGPT is ready! [${Date.now() - start}ms]`);
-
-    await gptAsk(page, question);
+    const chatGPT = await initChatGPT();
+    const start = Date.now();
 
     loadingMsg.setMessage(`thinking... [${Date.now() - start}ms]`);
 
-    const lastMessage: string = await page.evaluate(waitForResponse);
+    const response = await chatGPT.sendMessage(question);
 
     loadingMsg.stop();
     clear();
@@ -29,9 +20,8 @@ export default async function (question: string) {
     stdout.info("== Question ==");
     stdout.info("Question: " + question);
     stdout.success("== Answer ==");
-    stdout.log(turndownService.turndown(lastMessage));
+    stdout.log(response);
 
-    browser.close();
     process.exit(0);
   } catch (e) {
     if (e instanceof Error) {

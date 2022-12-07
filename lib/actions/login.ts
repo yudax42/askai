@@ -1,23 +1,30 @@
-import config from "@/config";
-import puppeteer from "puppeteer";
+import prompts from "prompts";
+import fs from "fs";
+import os from "os";
+import path from "path";
+import stdout from "@/stdout";
 
 export default async function (): Promise<void> {
   try {
-    const browser = await puppeteer.launch({
-      headless: false,
-      defaultViewport: null,
-      args: ["--start-maximized"],
-      userDataDir: config.PUPPETER_DATA_DIR,
-    });
-    const page = await browser.newPage();
-
-    await page.goto(config.CHAT_GPT_URL, {
-      waitUntil: "domcontentloaded",
+    const response = await prompts({
+      type: "text",
+      name: "token",
+      message: "Enter your ChatGPT token",
     });
 
-    browser.on("close", () => {
-      process.exit(0);
-    });
+    if (!response.token) {
+      throw new Error("No token provided");
+    }
+
+    const tokenPath = path.join(os.homedir(), ".chatgpt");
+    if (!fs.existsSync(tokenPath)) {
+      fs.mkdirSync(tokenPath);
+    }
+    fs.writeFileSync(path.join(tokenPath, "token"), response.token, "utf-8");
+
+    stdout.success("Successfully logged in!");
+
+    process.exit(0);
   } catch (e) {
     if (e instanceof Error) {
       console.log(e);
