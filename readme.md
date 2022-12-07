@@ -35,7 +35,23 @@ To use `askai`, you will need to login to your ChatGPT account. To do so, run th
 askai login
 ```
 
-This will open a headless Chromium browser, where you can login to your ChatGPT account. Once you are logged in, you can use `askai` to ask questions and start live chat sessions.
+To log in to ChatGPT, you can follow these steps:
+
+1. Open the ChatGPT website in your web browser.
+
+2. Open the developer tools in your browser. You can do this by right-clicking on the page and selecting the "Inspect" or "Inspect Element" option.
+
+3. In the developer tools, go to the "Application" or "Cookies" tab.
+
+4. Find the cookie named \_\_Secure-next-auth.session-token.
+
+5. Copy the value of this cookie.
+
+6. Run the command `askai login` in your terminal or command prompt.
+
+7. When prompted, paste the copied cookie value into the input field.
+
+After completing these steps, you should be logged in to ChatGPT.
 
 To ask a question, run the following command:
 
@@ -61,12 +77,6 @@ Here are some ways you can contribute to `askai`:
 - **Suggest new features**: Do you have an idea for a new feature or enhancement for `askai`? Please open an [issue](https://github.com/yudax42/askai/issues) to discuss it.
 - **Write code**: If you are a developer, you can contribute directly to the `askai` codebase. To do so, please fork the [`askai` repository](https://github.com/yudax42/askai) on GitHub, make your changes, and then submit a pull request. Please be sure to include detailed documentation for your changes.
 - **Improve the documentation**: Is something unclear or confusing in the `askai` documentation? Do you see any typos or mistakes? You can help improve the documentation by opening a pull request on the [`askai` repository](https://github.com/yudax42/askai) with your changes.
-
-## How it works
-
-`askai` uses the [Puppeteer](https://github.com/puppeteer/puppeteer) library to open a headless Chromium browser and interact with the ChatGPT website. When you run the `askai login` command, the browser will open and you can login to your ChatGPT account. Once you are logged in, `askai` can use the browser to send and receive messages from the ChatGPT model.
-
-For more details on how `askai` works, please see the source code on [GitHub](https://github.com/yudax42/askai).
 
 # Author
 
