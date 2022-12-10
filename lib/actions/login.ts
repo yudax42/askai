@@ -1,4 +1,4 @@
-import prompts from "prompts";
+import enquirer from "enquirer";
 import fs from "fs";
 import os from "os";
 import path from "path";
@@ -6,7 +6,7 @@ import stdout from "@/stdout";
 
 export default async function (): Promise<void> {
   try {
-    const response = await prompts({
+    const response: Record<string, string> = await enquirer.prompt({
       type: "text",
       name: "token",
       message: "Enter your ChatGPT token",
