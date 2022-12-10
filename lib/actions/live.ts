@@ -1,7 +1,8 @@
-import prompts from "prompts";
+import enquirer from "enquirer";
 import stdout from "@/stdout";
 import { clear } from "console";
 import initChatGPT from "@/init";
+import cliMd from "cli-markdown";
 
 export default async function (options: Record<string, any>) {
   try {
@@ -13,10 +14,10 @@ export default async function (options: Record<string, any>) {
     clear();
 
     do {
-      const { question } = await prompts({
+      const { question }: Record<string, any> = await enquirer.prompt({
         type: "text",
         name: "question",
-        message: "",
+        message: "askai >",
       });
 
       if (question == "exit") {
@@ -30,7 +31,7 @@ export default async function (options: Record<string, any>) {
 
       const response = await chatGPT.sendMessage(question);
 
-      stdout.log(response);
+      stdout.log(cliMd(response));
     } while (true);
   } catch (e) {
     if (e instanceof Error) {

@@ -1,6 +1,7 @@
 import stdout from "@/stdout";
 import { clear } from "console";
 import initChatGPT from "@/init";
+import cliMd from "cli-markdown";
 
 export default async function (question: string) {
   try {
@@ -20,7 +21,7 @@ export default async function (question: string) {
     stdout.info("== Question ==");
     stdout.info("Question: " + question);
     stdout.success("== Answer ==");
-    stdout.log(response);
+    stdout.log(cliMd(response));
 
     process.exit(0);
   } catch (e) {

@@ -4,7 +4,7 @@ import spinners from "cli-spinners";
 
 export default {
   log: (message: string) => {
-    console.log(kleur.white(message));
+    console.log(message);
   },
   error: (message: string) => {
     console.log(kleur.bold().red(message));
