@@ -19,8 +19,14 @@ async function initChatGPT() {
     "utf-8"
   );
 
+  const clearanceToken = fs.readFileSync(
+    path.join(os.homedir(), ".chatgpt", "clearance-token"),
+    "utf-8"
+  );
+
   const api = new ChatGPTAPI({
     sessionToken: token,
+    clearanceToken: clearanceToken,
   });
 
   await api.ensureAuth();

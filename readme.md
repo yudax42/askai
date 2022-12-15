@@ -9,6 +9,10 @@ A command-line interface for OpenAI ChatGPT.
 - 💬 Live chat mode for real-time conversation with the model
 - 🤖 Interact with the model using natural language
 
+## Update ⚠️
+
+On December 11, 2022, OpenAI implemented additional protections through Cloudflare to enhance security for the unofficial API. In order to use the API, you will need to obtain and use a valid OpenAI "session token" and Cloudflare "clearance token." It is recommended to refresh your Cloudflare cf_clearance token every hour or so, as these tokens expire after a period of two hours.
+
 ## Installation
 
 To install `askai`, run the following command:
@@ -45,11 +49,11 @@ To log in to ChatGPT, you can follow these steps:
 
 4. Find the cookie named \_\_Secure-next-auth.session-token.
 
-5. Copy the value of this cookie.
+5. Copy the value for cf_clearance and save it to your environment. This will be your clearanceToken.
 
 6. Run the command `askai login` in your terminal or command prompt.
 
-7. When prompted, paste the copied cookie value into the input field.
+7. When prompted, paste the copied values into the input field.
 
 After completing these steps, you should be logged in to ChatGPT.
 
